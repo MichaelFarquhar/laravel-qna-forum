@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    Dashboard | {{ auth()->user()->name }}
+    Dashboard | {{ auth()->user()->name ? auth()->user()->name : ''  }}
 @endsection
 
 @section('content')

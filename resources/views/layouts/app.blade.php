@@ -29,8 +29,9 @@
 
             <!-- Page Content -->
             <main>
-                {{-- {{ $slot }} --}}
-                @yield('main')
+                <div class="container mx-auto mt-8 px-4">
+                    @yield('main')
+                </div>
             </main>
         </div>
     </body>

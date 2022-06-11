@@ -5,10 +5,8 @@
 @endsection
 
 @section('main')
-    <div class="container mx-auto mt-8 px-4">
-        <div class="flex space-x-32 w-full">
-            @include('dashboard.sidebar')
-            @yield('content')
-        </div>
+    <div class="flex space-x-32 w-full">
+        @include('dashboard.sidebar')
+        @yield('content')
     </div>
 @endsection
