@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Topic;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use phpDocumentor\Reflection\Types\Null_;
 
@@ -19,7 +20,7 @@ class QuestionFactory extends Factory
     {
         return [
             'user_id' => 1,
-            'topic_id' => 1,
+            'topic_id' => Topic::all()->random()->id,
             'title' => 'New question?',
             'content' => $this->faker->text(100),
             'best_answer' => null

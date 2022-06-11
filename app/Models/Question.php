@@ -16,4 +16,12 @@ class Question extends Model
     {
         return $this->belongsTo(Topic::class);
     }
+
+    /**
+     * Get the user that belongs to the question.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
