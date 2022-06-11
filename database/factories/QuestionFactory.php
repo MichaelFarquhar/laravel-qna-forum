@@ -21,7 +21,7 @@ class QuestionFactory extends Factory
         return [
             'user_id' => 1,
             'topic_id' => Topic::all()->random()->id,
-            'title' => 'New question?',
+            'title' => 'What is your favourite food?',
             'content' => $this->faker->text(100),
             'best_answer' => null
         ];
