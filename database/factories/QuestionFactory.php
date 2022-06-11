@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Topic;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use phpDocumentor\Reflection\Types\Null_;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Question>
@@ -23,6 +23,7 @@ class QuestionFactory extends Factory
             'topic_id' => Topic::all()->random()->id,
             'title' => 'What is your favourite food?',
             'content' => $this->faker->text(100),
+            'slug' => Str::slug('What is your favourite food?'),
             'best_answer' => null
         ];
     }

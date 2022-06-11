@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->foreignId('topic_id')->constrained();
             $table->string('title');
             $table->text('content');
+            $table->string('slug');
             $table->tinyInteger('best_answer')->nullable();
             $table->timestamps();
         });
