@@ -9,6 +9,8 @@ class Question extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id', 'topic_id', 'title', 'content', 'slug'];
+
     /**
      * Get the topic that belongs to the question.
      */

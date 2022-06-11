@@ -9,6 +9,8 @@ class Topic extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug'];
+
     /**
      * A question has a single topic
      */

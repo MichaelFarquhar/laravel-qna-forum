@@ -34,6 +34,9 @@ Route::prefix('q')->group(function () {
         ->middleware(['auth'])->name('questions.create');
     Route::post('/store', [QuestionController::class, 'store'])
         ->middleware(['auth'])->name('questions.store');
+
+    Route::get('/{question}/{slug}', [QuestionController::class, 'show'])
+        ->name('questions.show');
 });
 
 // Route::get('/dashboard', function () {
