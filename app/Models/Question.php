@@ -26,4 +26,12 @@ class Question extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Returns the url of a question, which combines the id and the slug
+     */
+    public function url()
+    {
+        return '/q/'.$this->id.'/'.$this->slug;
+    }
 }

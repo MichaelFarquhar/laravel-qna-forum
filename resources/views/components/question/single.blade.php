@@ -27,14 +27,28 @@
         <button class="text-xs border rounded-2xl px-3 py-1 bg-neutral-100 font-semibold">{{ $question->topic->name }}</button>
     </div>
 
-    <div>
-        {{-- Comment count --}}
-        <a href="{{URL::to($question->url())}}" class="flex items-center text-slate-500 hover:text-slate-400 transition cursor-pointer w-fit">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-            </svg>
-            <span>125 comments</span>
-        </a>
-        <div class="text-xs text-gray-400 mt-1.5">Last comment: 24 minutes ago</div>
+    {{-- Question description --}}
+    <p>{{$question->content}}</p>
+</div>
+
+<div class="px-5 mt-8">
+    <x-answer.input />
+
+    <div class="text-gray-600 text-lg font-bold my-4">Answers (3)</div>
+
+    {{-- Answers --}}
+    <div class="space-y-8">
+        {{-- Answer container --}}
+        <div class="border-l-4 border-slate-400 pl-6 rounded space-y-3">
+            {{-- Answer user header --}}
+            <x-answer.user name="Michael John" time="24 minutes ago"/>
+
+            {{-- Answer text --}}
+            <x-answer.text text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis aspernatur accusantium enim facilis repellat dicta voluptate ut illo similique perspiciatis! Sunt deserunt consequatur soluta ipsam quod sit corporis nemo minus." />
+
+            {{-- Answer buttons --}}
+            <x-answer.buttons />
+        </div>
     </div>
+
 </div>

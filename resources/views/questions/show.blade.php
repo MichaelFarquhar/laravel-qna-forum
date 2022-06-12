@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('main')
-    <x-question.index :question="$question" />
+    <x-question.single :question="$question" />
 @endsection

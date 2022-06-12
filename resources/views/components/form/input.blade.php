@@ -5,7 +5,7 @@
             id="{{isset($id) ? $id : $name}}" 
             name="{{$name}}" 
             class="form-input @error('title') border-red-400 focus:border-red-200 focus:ring focus:ring-red-200 focus:ring-opacity-50 @enderror {{isset($classes) ?? ''}}" 
-            placeholder="{{$placeholder}}" 
+            placeholder="{{$placeholder ?? ''}}" 
             rows="4"
         >{{old($name)}}</textarea>
     @else
@@ -14,7 +14,7 @@
             name="{{$name}}" 
             class="form-input @error('title') border-red-400 focus:border-red-200 focus:ring focus:ring-red-200 focus:ring-opacity-50 @enderror {{isset($classes) ?? ''}}" 
             type="{{$type}}" 
-            placeholder="{{$placeholder}}" 
+            placeholder="{{$placeholder ?? ''}}" 
             value="{{old($name)}}"
         />
     @endif
