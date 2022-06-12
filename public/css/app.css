@@ -1287,6 +1287,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
+.bg-neutral-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
+}
 .bg-\[url\(\'https\:\/\/i\.pravatar\.cc\/32\'\)\] {
   background-image: url('https://i.pravatar.cc/32');
 }
@@ -1416,6 +1420,9 @@ select {
 }
 .pb-4 {
   padding-bottom: 1rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 .text-center {
   text-align: center;
