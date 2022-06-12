@@ -45,22 +45,23 @@
         </style>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen">
+        <div class="min-h-screen flex flex-col">
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                {{-- <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div> --}}
-            </header>
-
-            <!-- Page Content -->
-            <main>
+            <main class="flex-1">
                 <div class="container mx-auto mt-8 px-4">
                     @yield('main')
                 </div>
             </main>
+
+            <footer class="bg-slate-200 mt-14 py-6">
+                <div class="container mx-auto px-4">
+                    <div class="flex items-center justify-between">
+                        <div>&copy; Michael Farquhar {{date('Y')}}</div>
+                        <a class="underline" href="https://github.com/MichaelFarquhar/laravel-qna-forum" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
 </html>

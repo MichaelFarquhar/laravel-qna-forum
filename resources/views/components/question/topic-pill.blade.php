@@ -1,0 +1,1 @@
+<button class="text-xs border rounded-2xl px-3 py-1 bg-neutral-100 font-semibold">{{ $question->topic->name }}</button>

@@ -17,14 +17,8 @@
     </div>
 
     <div class="w-full flex items-center justify-between mb-3">
-        <div class="flex items-center space-x-3 py-3">
-            <div class="w-8 h-8 bg-slate-400 rounded-full bg-[url('https://i.pravatar.cc/32')]"></div>
-            <div>
-                <div class="text-md font-semibold text-slate-700">{{ $question->user->name }}</div>
-                <div class="text-xs text-neutral-500">asked {{ $question->created_at->diffForHumans() }}</div>
-            </div>
-        </div>
-        <button class="text-xs border rounded-2xl px-3 py-1 bg-neutral-100 font-semibold">{{ $question->topic->name }}</button>
+        <x-question.user :question="$question" />
+        <x-question.topic-pill :question="$question" /> 
     </div>
 
     <div>
