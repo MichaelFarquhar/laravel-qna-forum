@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Topic;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -18,13 +19,15 @@ class QuestionFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->text(25).'?';
+
         return [
-            'user_id' => 1,
+            'user_id' => User::all()->random()->id,
             'topic_id' => Topic::all()->random()->id,
-            'title' => 'What is your favourite food?',
+            'title' => $title,
             'content' => $this->faker->text(100),
-            'slug' => Str::slug('What is your favourite food?'),
-            'best_answer' => null
+            'slug' => Str::slug($title),
+            'solution' => null
         ];
     }
 }

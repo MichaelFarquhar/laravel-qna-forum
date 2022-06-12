@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Question;
+use App\Models\Answer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class QuestionSeeder extends Seeder
+class AnswerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-        Question::factory(30)->create();
+        Answer::factory(75)->create();
     }
 }

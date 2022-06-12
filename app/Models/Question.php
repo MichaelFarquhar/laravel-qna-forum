@@ -28,6 +28,14 @@ class Question extends Model
     }
 
     /**
+     * Get answers for this question
+     */
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+    /**
      * Returns the url of a question, which combines the id and the slug
      */
     public function url()
