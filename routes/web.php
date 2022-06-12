@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -29,15 +30,23 @@ Route::middleware(['auth'])->group(function () {
 
 // Question Routes
 Route::prefix('q')->group(function () {
-    Route::get('/', [QuestionController::class, 'index'])->name('questions.index');
+    Route::get('/', [QuestionController::class, 'index'])
+        ->name('questions.index');
     Route::get('/create', [QuestionController::class, 'create'])
-        ->middleware(['auth'])->name('questions.create');
+        ->middleware(['auth'])
+        ->name('questions.create');
     Route::post('/store', [QuestionController::class, 'store'])
-        ->middleware(['auth'])->name('questions.store');
+        ->middleware(['auth'])
+        ->name('questions.store');
 
     Route::get('/{question}/{slug}', [QuestionController::class, 'show'])
         ->name('questions.show');
 });
+
+// Post request to submit an answer to a question
+Route::post('/answers/store', [AnswerController::class, 'store'])
+    ->middleware(['auth'])
+    ->name('answers.store');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

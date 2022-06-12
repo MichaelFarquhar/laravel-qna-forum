@@ -36,7 +36,7 @@
 
             {{-- Answer input box for user with show if they haven't yet wrote an answer  --}}
             @if ($user_answer->isEmpty())
-                <x-answer.input />
+                <x-answer.input :question="$question" />
             {{-- Otherwise, show that users answer at the top --}}
             @else
                 <div class="text-cyan-600 text-lg font-bold my-4">Your Answer</div>
