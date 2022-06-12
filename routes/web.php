@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -50,7 +51,7 @@ Route::post('/answers/store', [AnswerController::class, 'store'])
     ->name('answers.store');
 
 // Reports
-Route::prefix('report')->group(function () {
+Route::prefix('reports')->group(function () {
     Route::get('/', [ReportController::class, 'index'])
         ->name('reports.index');
     
@@ -60,6 +61,16 @@ Route::prefix('report')->group(function () {
         Route::post('/store', [ReportController::class, 'store'])
             ->name('reports.store');
     });
+});
+
+// bookmarks
+Route::prefix('bookmarks')->middleware(['auth'])->group(function () {
+    Route::get('/', [BookmarkController::class, 'index'])
+        ->name('bookmarks.index');
+    Route::post('/store', [BookmarkController::class, 'store'])
+        ->name('bookmarks.store');
+    Route::delete('/{bookmark}', [BookmarkController::class, 'destroy'])
+        ->name('bookmarks.destroy');
 });
 
 // Route::get('/dashboard', function () {

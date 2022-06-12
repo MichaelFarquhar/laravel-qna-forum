@@ -57,4 +57,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Answer::class);
     }
+
+    /**
+     * Get bookmarks for this user
+     */
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+
+    /**
+     * Returns true if user has bookmarked a question given it's id
+     */
+    public function hasQuestionBookmarked($question_id)
+    {
+        return $this->bookmarks()->where('question_id', $question_id)->count() > 0;
+    }
 }

@@ -32,35 +32,10 @@
 
     {{-- Footer with buttons --}}
     <div class="flex items-center space-x-2 py-4 px-5">
-            {{-- If this question belongs to authed user, show edit button--}}
-            @auth
-                @if ($question->user->id == auth()->user()->id)                    
-                    <a href="#" class="py-0.5 px-2 rounded bg-cyan-400 hover:bg-cyan-600 text-white flex items-center space-x-1 mr-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                        </svg>
-                        <span class="text-sm font-bold">Edit</span>
-                    </a>
-                @endif
-            @endauth
-            <a href="#" class="py-0.5 px-2 rounded bg-stone-400 hover:bg-stone-600 text-white flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-                </svg>
-                <span class="text-sm font-bold">Save</span>
-            </a>
-            <a href="#" class="py-0.5 px-2 rounded bg-stone-400 hover:bg-stone-600 text-white flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
-                </svg>
-                <span class="text-sm font-bold">Share</span>
-            </a>
-            <a href="{{route('reports.show', ['question' => $question->id])}}" class="py-0.5 px-2 rounded bg-red-400 hover:bg-red-600 text-white flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-sm font-bold">Report</span>
-            </a>
+        <x-question.edit-button :question="$question" />
+        <x-question.save-button :question="$question" />
+        <x-question.share-button />
+        <x-question.report-button :question="$question" />
     </div>
 
     <div class="px-5 mt-6">

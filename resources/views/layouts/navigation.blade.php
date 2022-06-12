@@ -47,6 +47,9 @@
                         <x-dropdown-link :href="route('dashboard')">
                             Dashboard
                         </x-dropdown-link>
+                        <x-dropdown-link :href="route('bookmarks.index')">
+                            Bookmarks
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('dashboard')">
                             Profile
                         </x-dropdown-link>
