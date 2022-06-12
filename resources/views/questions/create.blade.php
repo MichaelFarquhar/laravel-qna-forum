@@ -39,6 +39,7 @@
                 persist: false,  // This will make it so new topics don't stick around as an option
                 placeholder: 'Choose a topic or create a new one.',
                 maxItems: '1',
+                closeAfterSelect: true,
                 create: function(input) {
                     // When a new topic is requested, it's value will be 'new'
                     // This will signal the controller to create a new topic

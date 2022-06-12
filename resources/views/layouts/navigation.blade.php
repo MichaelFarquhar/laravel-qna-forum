@@ -1,13 +1,35 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <x-container>
         <div class="flex justify-between items-center h-16">
-            <a href="{{ route('home') }}">
+            {{-- Logo Text --}}
+            <a href="{{ route('home') }}" class="basis-1/4">
                 <h1 class="text-2xl font-extrabold text-slate-500 hover:text-slate-800 transition">Q&A Forum</h1>
             </a>
 
+            {{-- Searchbar & Search button --}}
+            <div class="basis-1/2 flex items-center space-x-4">
+                <div class="relative w-full">
+                    <input class="form-input rounded-3xl mt-0" type="text" placeholder="Search questions" />
+                    <button class="absolute right-1 top-1 bottom-1 my-auto bg-slate-200 text-slate-600 py-1 px-2.5 rounded-3xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="group">
+                    <a href="{{route('questions.create')}}">
+                        <button class="p-2 bg-yellow-500 rounded-xl hover:rounded-3xl hover:bg-yellow-600 transition-all duration-300 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:ml-6 sm:justify-end basis-1/4">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -55,8 +77,7 @@
                 </button>
             </div>
         </div>
-    </div>
-
+    </x-container>
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">

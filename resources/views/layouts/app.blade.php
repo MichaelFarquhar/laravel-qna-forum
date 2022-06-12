@@ -48,19 +48,19 @@
         <div class="min-h-screen flex flex-col">
             @include('layouts.navigation')
 
-            <main class="flex-1">
-                <div class="container mx-auto mt-8 px-4">
+            <main class="flex-1 mt-8">
+                <x-container>
                     @yield('main')
-                </div>
+                </x-container>
             </main>
 
             <footer class="bg-slate-200 mt-14 py-6">
-                <div class="container mx-auto px-4">
+                <x-container>
                     <div class="flex items-center justify-between">
                         <div>&copy; Michael Farquhar {{date('Y')}}</div>
                         <a class="underline" href="https://github.com/MichaelFarquhar/laravel-qna-forum" target="_blank">Source Code</a>
                     </div>
-                </div>
+                </x-container>
             </footer>
         </div>
     </body>

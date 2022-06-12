@@ -5,7 +5,5 @@
 @endsection
 
 @section('main')
-    <div class="container mx-auto mt-8 px-4">
-        @yield('content')
-    </div>
+    @yield('content')
 @endsection
