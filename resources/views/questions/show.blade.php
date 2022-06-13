@@ -66,11 +66,7 @@
             @endunless
             <div class="space-y-8">
                 @foreach ($question->answers->where('user_id', '!=', auth()->user()->id) as $answer)
-                    <div class="border-l-4 border-slate-400 pl-6 ml-4 rounded space-y-3">
-                        <x-answer.user name="{{$answer->user->name}}" time="{{$answer->created_at->diffForHumans()}}"/>
-                        <x-answer.text text="{{$answer->answer}}" />
-                        <x-answer.buttons />
-                    </div>
+                    <x-answer.index :answer="$answer" />
                 @endforeach
             </div>
         @endauth
@@ -78,11 +74,7 @@
             <div class="text-gray-600 text-lg font-bold mt-10 mb-4">Answers ({{$question->answers->count()}})</div>
             <div class="space-y-8">
                 @foreach ($question->answers as $answer)
-                    <div class="border-l-4 border-slate-400 pl-6 ml-4 rounded space-y-3">
-                        <x-answer.user name="{{$answer->user->name}}" time="{{$answer->created_at->diffForHumans()}}"/>
-                        <x-answer.text text="{{$answer->answer}}" />
-                        <x-answer.buttons />
-                    </div>
+                    <x-answer.index :answer="$answer" />
                 @endforeach
             </div>
         @endguest

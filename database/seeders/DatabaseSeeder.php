@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             TopicSeeder::class,
             QuestionSeeder::class,
             AnswerSeeder::class,
+            CommentSeeder::class,
             BookmarkSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();

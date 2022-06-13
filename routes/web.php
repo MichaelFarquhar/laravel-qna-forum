@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -73,8 +74,9 @@ Route::prefix('bookmarks')->middleware(['auth'])->group(function () {
         ->name('bookmarks.destroy');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth']);
-
+// Store a comment
+Route::post('/comments/store', [CommentController::class, 'store'])
+    ->middleware(['auth'])
+    ->name('comments.store');
+    
 require __DIR__.'/auth.php';

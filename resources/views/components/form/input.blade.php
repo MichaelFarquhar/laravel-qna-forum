@@ -6,7 +6,7 @@
             name="{{$name}}" 
             class="form-input @error($name) border-red-400 focus:border-red-200 focus:ring focus:ring-red-200 focus:ring-opacity-50 @enderror {{isset($classes) ?? ''}}" 
             placeholder="{{$placeholder ?? ''}}" 
-            rows="4"
+            rows="{{$rows ?? '4'}}"
             {{$required ?? ''}}
         >{{old($name)}}</textarea>
     @else

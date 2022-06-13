@@ -26,4 +26,12 @@ class Answer extends Model
     {
         return $this->belongsTo(Question::class);
     }
+
+    /**
+     * Get all the comments for an answer
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
