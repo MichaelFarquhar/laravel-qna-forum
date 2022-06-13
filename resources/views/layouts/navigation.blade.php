@@ -32,8 +32,8 @@
             <div class="hidden md:flex md:items-center md:justify-end basis-1/4">
                 @guest
                     <div class="w-fit text-sm space-x-2">
-                        <a href="{{route('login')}}" class="px-4 py-2 rounded-xl text-white m-0 bg-red-500 hover:bg-red-600 transition">Login</a>
-                        <a href="{{route('register')}}" class="px-4 py-2 border rounded-xl bg-neutral-50 hover:bg-neutral-100 transition">Register</a>
+                        <a href="{{route('login')}}" class="px-4 py-2 rounded-xl text-white m-0 bg-red-500 hover:bg-red-600 transition">{{__('Login')}}</a>
+                        <a href="{{route('register')}}" class="px-4 py-2 border rounded-xl bg-neutral-50 hover:bg-neutral-100 transition">{{__('Register')}}</a>
                     </div>
                 @endguest
                 @auth
@@ -53,16 +53,13 @@
 
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('dashboard')">
-                                    Dashboard
+                                    {{__('Dashboard')}}
                                 </x-dropdown-link>
                                 <x-dropdown-link :href="route('bookmarks.index')">
-                                    Bookmarks
+                                    {{__('Bookmarks')}}
                                 </x-dropdown-link>
-                                <x-dropdown-link :href="route('dashboard')">
-                                    Profile
-                                </x-dropdown-link>
-                                <x-dropdown-link :href="route('dashboard')">
-                                    Password
+                                <x-dropdown-link :href="route('profile.edit')">
+                                    {{__('Profile')}}
                                 </x-dropdown-link>
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">

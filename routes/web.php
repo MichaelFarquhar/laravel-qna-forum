@@ -25,10 +25,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // User must be logged in
 Route::middleware(['auth'])->group(function () {
-    
-    // User's dashboard after logging in
+    // User's dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
+    // User's profile edit form
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])
+        ->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
 });
 
 // Question Routes
