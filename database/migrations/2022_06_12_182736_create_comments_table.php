@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('answer_id')->constrained();
             $table->text('comment');
-            $table->integer('upvotes')->default(0);
             $table->timestamps();
         });
     }

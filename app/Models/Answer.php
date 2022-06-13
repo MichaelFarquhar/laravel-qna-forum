@@ -9,7 +9,7 @@ class Answer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'question_id', 'answer', 'upvotes'];
+    protected $fillable = ['user_id', 'question_id', 'answer'];
 
     /**
      * Get the user that belongs to the answer.

@@ -21,8 +21,7 @@ class CommentFactory extends Factory
         return [
             'user_id' => User::all()->random()->id,
             'answer_id' => Answer::all()->random()->id,
-            'comment' => $this->faker->text(200),
-            'upvotes' => 0
+            'comment' => $this->faker->text(200)
         ];
     }
 }
