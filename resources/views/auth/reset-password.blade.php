@@ -1,4 +1,11 @@
-<x-guest-layout>
+@extends('layouts.app')
+
+@section('title', 'Reset Password')
+
+@section('main')
+    <div class="flex justify-center">
+        <x-page-header text="Reset Password" />
+    </div>
     <x-auth-card>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -39,4 +46,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+@endsection

@@ -1,4 +1,11 @@
-<x-guest-layout>
+@extends('layouts.app')
+
+@section('title', 'Confirm Password')
+
+@section('main')
+    <div class="flex justify-center">
+        <x-page-header text="Confirm Password" />
+    </div>
     <x-auth-card>
         <div class="mb-4 text-sm text-gray-600">
             {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
@@ -27,4 +34,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+@endsection

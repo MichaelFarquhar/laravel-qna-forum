@@ -1,4 +1,11 @@
-<x-guest-layout>
+@extends('layouts.app')
+
+@section('title', 'Forgot Password')
+
+@section('main')
+    <div class="flex justify-center">
+        <x-page-header text="Forgot Password" />
+    </div>
     <x-auth-card>
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
@@ -27,4 +34,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+@endsection

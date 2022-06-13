@@ -1,4 +1,11 @@
-<x-guest-layout>
+@extends('layouts.app')
+
+@section('title', 'Login')
+
+@section('main')
+    <div class="flex justify-center">
+        <x-page-header text="Login" />
+    </div>
     <x-auth-card>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -47,4 +54,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+@endsection
