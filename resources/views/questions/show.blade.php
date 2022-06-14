@@ -32,7 +32,6 @@
 
     {{-- Footer with buttons --}}
     <div class="flex items-center space-x-2 py-4 px-5">
-        <x-question.edit-button :question="$question" />
         <x-question.save-button :question="$question" />
         <x-question.share-button />
         <x-question.report-button :question="$question" />

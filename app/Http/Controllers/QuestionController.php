@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Models\Topic;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 class QuestionController extends Controller
