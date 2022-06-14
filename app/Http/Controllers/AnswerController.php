@@ -25,11 +25,4 @@ class AnswerController extends Controller
         
         return redirect()->back();
     }
-
-    /**
-     * Updating an answer, mainly used to update an upvote
-     */
-    // public function update(Request $request){
-
-    // }
 }

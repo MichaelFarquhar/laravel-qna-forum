@@ -8,14 +8,6 @@ use Illuminate\Http\Request;
 class ReportController extends Controller
 {
     /**
-     * Show report splash screen
-     */
-    public function index()
-    {
-        return view('reports.index');
-    }
-    
-    /**
      * Show report form for question
      */
     public function show(Question $question)
