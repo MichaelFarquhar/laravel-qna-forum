@@ -9,7 +9,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $questions = Question::with('topic')->with('user')->latest()->get();
-        return view('home.index', ['questions' => $questions]);
+        // Latest question
+        $newest_questions = Question::with('topic')->with('user')->latest()->take(10)->get();
+
+        return view('home', compact('newest_questions'));
     }
 }

@@ -18,10 +18,16 @@ class AnswerFactory extends Factory
      */
     public function definition()
     {
+        // Get random question and make answer date sometime after the questions date
+        $question = Question::all()->random();
+        $randomDate = $this->faker->dateTimeBetween($question->created_at);
+
         return [
             'user_id' => User::all()->random()->id,
-            'question_id' => Question::all()->random()->id,
-            'answer' => $this->faker->text(400)
+            'question_id' => $question->id,
+            'answer' => $this->faker->text(400),
+            'created_at' => $randomDate,
+            'updated_at' => $randomDate
         ];
     }
 }

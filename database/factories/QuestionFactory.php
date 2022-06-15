@@ -20,14 +20,17 @@ class QuestionFactory extends Factory
     public function definition()
     {
         $title = $this->faker->text(25).'?';
-
+        $randomDate = $this->faker->dateTimeThisMonth();
+        
         return [
             'user_id' => User::all()->random()->id,
             'topic_id' => Topic::all()->random()->id,
             'title' => $title,
             'content' => $this->faker->text(100),
             'slug' => Str::slug($title),
-            'solution' => null
+            'solution' => null,
+            'created_at' => $randomDate,
+            'updated_at' => $randomDate
         ];
     }
 }
