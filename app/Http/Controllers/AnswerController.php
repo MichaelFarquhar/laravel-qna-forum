@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class AnswerController extends Controller
@@ -24,5 +25,22 @@ class AnswerController extends Controller
         ]);
         
         return redirect()->back();
+    }
+
+    /**
+     * Marks an answer as a solution to a question
+     */
+    public function markAsSolution(Request $request)
+    {
+        $request->validate([
+            'question_id' => 'required',
+            'answer_id' => 'required',
+        ]);
+
+        $question = Question::find($request->question_id);
+        $question->solution = $request->answer_id;
+        $question->save();
+
+        return back();
     }
 }

@@ -45,6 +45,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/answers/store', [AnswerController::class, 'store'])
         ->name('answers.store');
 
+    // Mark a answer as a solution
+    Route::patch('/answer/solution', [AnswerController::class, 'markAsSolution'])
+        ->name('answers.solution');
+
     // Submit a comment
     Route::post('/comments/store', [CommentController::class, 'store'])
         ->name('comments.store');

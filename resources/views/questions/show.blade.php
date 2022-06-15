@@ -65,17 +65,16 @@
             @endunless
             <div class="space-y-8">
                 @foreach ($question->answers->where('user_id', '!=', auth()->user()->id) as $answer)
-                    <x-answer.index :answer="$answer" />
+                    <x-answer.index :answer="$answer" :question="$question"/>
                 @endforeach
             </div>
-        @endauth
-        @guest
+        @else
             <div class="text-gray-600 text-lg font-bold mt-10 mb-4">Answers ({{$question->answers->count()}})</div>
             <div class="space-y-8">
                 @foreach ($question->answers as $answer)
-                    <x-answer.index :answer="$answer" />
+                    <x-answer.index :answer="$answer" :question="$question"/>
                 @endforeach
             </div>
-        @endguest
+        @endauth
     </div>
 @endsection

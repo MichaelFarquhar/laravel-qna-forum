@@ -1,14 +1,34 @@
 <div x-data="{answerOpen: true, commentsOpen: false, answerInputOpen: false}">
     <div class="ml-4 flex">
-        <div @click="answerOpen = !answerOpen" x-bind:class="!answerOpen ? 'border-l-4 border-slate-300 rounded-l pr-6 cursor-pointer' : 'border-l-4 border-slate-500 rounded-l pr-6 cursor-pointer'"></div>
+        {{-- If solution, show a green border instead--}}
+        @if ($question->solution === $answer->id)
+            <div @click="answerOpen = !answerOpen" x-bind:class="!answerOpen ? 'border-l-4 border-green-300 rounded-l pr-6 cursor-pointer' : 'border-l-4 border-green-500 rounded-l pr-6 cursor-pointer'"></div>
+        @else
+            <div @click="answerOpen = !answerOpen" x-bind:class="!answerOpen ? 'border-l-4 border-slate-300 rounded-l pr-6 cursor-pointer' : 'border-l-4 border-slate-500 rounded-l pr-6 cursor-pointer'"></div>
+        @endif
 
         {{-- Text to show when answer is minimized --}}
         <div class="text-sm" x-show="!answerOpen">{{$answer->user->name}} - {{$answer->comments->count() == 1 ? '1 comment' : $answer->comments->count().' comments' }}</div>
 
         {{-- Regular answer -> will hide when left border is clicked --}}
         <div class="space-y-3" x-show="answerOpen">
+
+            {{-- Text to denote marked as solution --}}
+            @if ($question->solution === $answer->id)
+                <div class="flex items-center space-x-2 text-green-500 font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-sm">Marked as solution</span>
+                </div>
+            @endif
+
             <x-answer.user name="{{$answer->user->name}}" time="{{$answer->created_at->diffForHumans()}}"/>
             <x-answer.text text="{{$answer->answer}}" />
+
+            {{-- Mark as solution button --}}
+            <x-answer.solution-button :question="$question" :answer="$answer"/>
+
             <x-answer.buttons :comments="$answer->comments"/>
         </div>
     </div>
