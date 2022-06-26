@@ -24,7 +24,7 @@ class AnswerController extends Controller
             'answer' => $request->answer
         ]);
         
-        return redirect()->back();
+        return back();
     }
 
     /**

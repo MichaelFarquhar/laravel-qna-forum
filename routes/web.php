@@ -80,15 +80,5 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profile', [ProfileController::class, 'update'])
         ->name('profile.update');
 });
-
-// Question Routes
-Route::prefix('q')->group(function () {
-    Route::get('/create', [QuestionController::class, 'create'])
-        ->middleware(['auth'])
-        ->name('questions.create');
-    Route::post('/store', [QuestionController::class, 'store'])
-        ->middleware(['auth'])
-        ->name('questions.store');
-});
     
 require __DIR__.'/auth.php';
